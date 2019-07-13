@@ -9,8 +9,13 @@ import numpy as np
 import math
 import random
 import cv2
+import os
+from torch.utils.data import Dataset, DataLoader
+import matplotlib.pyplot as plt
 
-def img_transform(img, crop_size=None, crop_type='center', color_shift=False, rotation=False, perspective=False):
+############################################### img_transform function ###############################################
+
+def img_transform(img, crop_size=None, crop_type='random', color_shift=True, rotation=True, perspective=True):
     """
     img: imput image
     crop_size: crop_size,[height, width],int
@@ -56,7 +61,7 @@ def img_transform(img, crop_size=None, crop_type='center', color_shift=False, ro
         img = cv2.warpAffine(img, mat, (int(img.shape[1]*1.3), int(img.shape[0]*1.3)))
 
     if perspective:
-        random_margin = 60
+        random_margin = 50
         x1 = random.randint(-random_margin, random_margin)
         y1 = random.randint(-random_margin, random_margin)
         x2 = random.randint(width - random_margin - 1, width - 1)
@@ -81,13 +86,41 @@ def img_transform(img, crop_size=None, crop_type='center', color_shift=False, ro
         img_warp = cv2.warpPerspective(img, M_warp, (width, height))
         img = img_warp
     return img
+######################################################################################################################
 
+################################################# use example #########################################################
 
-# img = cv2.imread('./img/dog.jpg', 1)
-#
-# img = img_transform(img, crop_size=[200,150], crop_type='random', color_shift=True, rotation=True, perspective=True)
-#
-# cv2.imshow('',img)
-# key = cv2.waitKey()
-# if key == 27:
-#     cv2.destroyAllWindows()
+class ReadImg(Dataset):
+    def __init__(self, root, transform=None):
+        img_list = os.listdir(root)
+        self.img_paths = [os.path.join(root, k) for k in img_list]
+        self.transform = transform
+
+    def __getitem__(self, index):
+        img = cv2.imread(self.img_paths[index], 1)
+        if self.transform:
+            img = self.transform(img)
+        return img
+
+    def __len__(self):
+
+        return len(self.img_paths)
+
+def show_imgs(imgs):
+    plt.figure()
+    for i, img in enumerate(imgs):
+        if i>20:
+            break
+        img = img.squeeze(0).numpy().astype(np.uint8)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        plt.subplot(3, 7, i+1)
+        plt.imshow(img)
+        plt.xticks(())
+        plt.yticks(())
+    plt.show()
+
+if __name__ == '__main__':
+    images = ReadImg('./img/face', transform=img_transform)
+    img_set = DataLoader(images, batch_size=1, shuffle=False)
+    show_imgs(img_set)
+
