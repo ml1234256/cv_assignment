@@ -6,3 +6,6 @@ img_transform.py: 图像增强脚本和使用示例<br>
 
 ### assignment2
 medianBlur.py: 中值滤波函数和使用示例<br>
+
+### assignment3
+Linear&LogisticRegression.ipynb: 线性回归和逻辑回归代码
