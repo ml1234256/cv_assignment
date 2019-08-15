@@ -6,8 +6,11 @@ img_transform.py: 图像增强脚本和使用示例<br>
 
 ### assignment2
 medianBlur.py: 中值滤波函数和使用示例<br>
-Ransac.py: RANSAC 算法伪代码<br>
+Ransac.py: RANSAC 算法伪code<br>
 ImageFilter&FeaturePoints.ipynb: 图像滤波（拉普拉斯、高斯滤波等），特征点（SIFT、HoG等）<br>
 
 ### assignment3
-Linear&LogisticRegression.ipynb: 线性回归和逻辑回归代码
+Linear&LogisticRegression.ipynb: 线性回归和逻辑回归code<br>
+
+### assignment5
+k-means.ipynb: k-means、k-means++ code
