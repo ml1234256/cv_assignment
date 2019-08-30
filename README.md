@@ -13,4 +13,9 @@ ImageFilter&FeaturePoints.ipynb: 图像滤波（拉普拉斯、高斯滤波等�
 Linear&LogisticRegression.ipynb: 线性回归和逻辑回归code<br>
 
 ### assignment5
-k-means.ipynb: k-means、k-means++ code
+k-means.ipynb: k-means、k-means++ code<br>
+
+
+### assignment7
+CNN2：CNN-structure-evolution.ipynb: CNN framework发展历史:LeNet-5, AlexNet, Vgg, ResNet 等
+Light-Framework.docx: 轻量级网络：MobileNet, ShuffleNet, 模块优化：SeNet， SkNet, 等
