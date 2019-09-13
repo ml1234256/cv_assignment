@@ -17,5 +17,11 @@ k-means.ipynb: k-means、k-means++ code<br>
 
 
 ### assignment7
-CNN2：CNN-structure-evolution.ipynb: CNN framework发展历史:LeNet-5, AlexNet, Vgg, ResNet 等
-Light-Framework.docx: 轻量级网络：MobileNet, ShuffleNet, 模块优化：SeNet， SkNet, 等
+CNN2：CNN-structure-evolution.ipynb: CNN framework发展历史:LeNet-5, AlexNet, Vgg, ResNet 等<br>
+Light-Framework.docx: 轻量级网络：MobileNet, ShuffleNet, 模块优化：SeNet， SkNet, 等  <br>
+
+### assignment8
+CNN3-Details.ipynb: PCA<br>
+
+### assignment10:
+NMS.ipynb: NMS<br>
